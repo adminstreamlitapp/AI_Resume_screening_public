@@ -78,7 +78,7 @@ def extract_text_from_file(file):
         elif content_type == "application/pdf":
             return extract_text_from_pdf(io.BytesIO(content))
         else:
-            st.warning("Unsupported file format. Please upload .docx, .doc, or .pdf files.")
+            st.warning("Unsupported file format. Please upload .docx  or .pdf files.")
             return ""
     except Exception as e:
         st.error(f"Error extracting text from file: {e}")
@@ -146,7 +146,7 @@ with col1:
 with col2:
     optional_skills = st.text_area("Enter Optional Skills (one skill per line):", height=200)
 
-uploaded_files = st.file_uploader("Upload multiple resumes (.docx, .doc, .pdf)", accept_multiple_files=True)
+uploaded_files = st.file_uploader("Upload multiple resumes (.docx, .pdf)", accept_multiple_files=True)
 
 if st.button("Analyze Resumes"):
     if uploaded_files and required_skills and optional_skills:
